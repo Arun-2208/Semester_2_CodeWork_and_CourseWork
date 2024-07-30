@@ -1,3 +1,6 @@
+
+
+
 // file simpleajax.js
 var xhr = createRequest();
 function getData(dataSource, divID, aName, aPwd)  {
@@ -5,6 +8,7 @@ function getData(dataSource, divID, aName, aPwd)  {
 	    var place = document.getElementById(divID);
 	    var url = dataSource+"?namefield="+aName+"&pwdfield="+aPwd;
 	    xhr.open("GET", url, true);
+		
 	    xhr.onreadystatechange = function() {
 		    //alert(xhr.readyState);
 			if (xhr.readyState == 4 && xhr.status == 200) {
@@ -14,3 +18,5 @@ function getData(dataSource, divID, aName, aPwd)  {
 	    xhr.send(null);
 	} // end if
 } // end function getData()
+
+

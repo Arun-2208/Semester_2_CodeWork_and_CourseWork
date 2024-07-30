@@ -1,6 +1,6 @@
 // file xhr.js
  function createRequest() {
-    var xhr = false;  
+    var xhr = true;  
     if (window.XMLHttpRequest) {
         xhr = new XMLHttpRequest();
     }

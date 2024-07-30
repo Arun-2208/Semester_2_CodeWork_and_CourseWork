@@ -7,7 +7,7 @@
   <body>
   <H1>Fetching data with PHP</H1>
 
-  <form>
+  <form method="get" action="simplephp.php">
 	    <label>User Name:  <input type="text" name="namefield"> </label>
  	    <label><br>Password: <input type="text" name="pwdfield"> <br><br> </label>
 		<input type="submit" value="Send to server" />
@@ -26,7 +26,12 @@
 		sleep(10);
 		// write back the password concatenated to end of the name
 		ECHO ($name." : ".$pwd);
-	}
+
+
+	date_default_timezone_set("Australia/Melbourne");
+        $currentServerTime = date('D M d H:i:s T Y');
+		echo "<p>Current Server Time: " . $currentServerTime . "</p>";
+	} 
 ?>
 
 </HTML>
