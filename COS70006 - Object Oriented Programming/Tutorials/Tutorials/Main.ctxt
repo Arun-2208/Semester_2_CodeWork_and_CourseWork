@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Main
+comment1.params=ZAR
+comment1.target=void\ ZARtoAUD(double)
+comment2.params=AUD
+comment2.target=void\ AUDtoZAR(double)
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+numComments=4
