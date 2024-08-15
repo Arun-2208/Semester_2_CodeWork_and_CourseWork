@@ -8,7 +8,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Lab3 {
+public class RandomNumGenerator {
 
     public static void main(String args[]) {
 
