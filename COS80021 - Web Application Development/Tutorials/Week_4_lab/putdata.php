@@ -22,12 +22,9 @@
         $price = $_POST["price"];
         $quantity = $_POST["quantity"];
        
-
         $table_name = 'inventory';
         
-            
             $query = "INSERT INTO $table_name(make,model,price,quantity) values ('$make','$model','$price','$quantity'); ";
-
 
         $host = "feenix-mariadb.swin.edu.au";
         $user = "s104837257";
@@ -76,4 +73,4 @@
 from Employees EM 
 join Experience EX on EM.employee_id=EX.employee_id 
 join Languages L on EX.language_id=L.language_id 
-where language='PHP' and city='Melbourne' and years=5; 
+where language='PHP' and city='Melbourne' and years>=5; 

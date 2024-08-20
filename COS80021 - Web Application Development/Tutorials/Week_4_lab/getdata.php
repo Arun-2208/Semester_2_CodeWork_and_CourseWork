@@ -63,9 +63,9 @@
                 $row = mysqli_fetch_row($query_result);
             }
 
-            }
-
         }
+
+    }
 
 ?>
 </html>
