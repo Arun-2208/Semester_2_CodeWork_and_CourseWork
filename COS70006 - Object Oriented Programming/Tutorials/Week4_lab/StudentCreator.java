@@ -11,28 +11,18 @@ class Student{
   private String lastName;
   private String ID;
 
-  /**
-   * Constructor for objects of class Student
-   *
-   * @param   firstName student's first name
-   * @param   lastName student's last name
-   * @param   ID student's ID number
-   */
-  public Student(String firstName, String lastName, String ID)
-  {
+/*Constructor for objects of class Student*/
+
+  public Student(String firstName, String lastName, String ID){
     this.firstName = firstName;
     this.lastName = lastName;
     this.ID = ID;
   }
 
-  /**
-   * Returns a string of login name
-   *
-   * @return    Returns a String object that contains a login name
-   */
-    public String getLoginName () {	 
-   
-		return firstName.substring(0, 1) + lastName;
+/* Returns a string of login name*/
+
+  public String getLoginName (){	 
+    return firstName.substring(0, 1) + lastName;
 	}
 }
 
