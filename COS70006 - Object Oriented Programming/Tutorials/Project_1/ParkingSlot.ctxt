@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=ParkingSlot
+comment0.text=\r\n\ This\ class\ represents\ the\ individual\ parking\ slots\ (visitor\ or\ staff)\r\n\ @author\ Arun\ Ragavendhar\ -\ 104837257\r\n\ @version\ -\ 1.0\ -\ \r\n
+comment1.params=slotID\ isVisitorSlot
+comment1.target=ParkingSlot(java.lang.String,\ boolean)
+comment1.text=Constructor\ for\ initialising\ the\ attributes\ of\ class\ ParkingSlot
+comment2.params=
+comment2.target=boolean\ isOccupied()
+comment2.text=method\ to\ check\ check\ if\ the\ slot\ is\ occupied\ or\ not
+comment3.params=car
+comment3.target=boolean\ parkCar(Car)
+comment3.text=method\ to\ add\ a\ car
+comment4.params=
+comment4.target=boolean\ removeCar()
+comment4.text=method\ to\ remove\ a\ car
+comment5.params=
+comment5.target=java.lang.String\ getSlotInfo()
+comment5.text=method\ to\ return\ information\ about\ a\ slot
+comment6.params=
+comment6.target=java.lang.String\ getSlotID()
+comment6.text=method\ to\ get\ the\ slot\ ID
+comment7.params=
+comment7.target=java.lang.String\ getIsVisitorSlot()
+comment7.text=method\ to\ get\ the\ slot\ type\ is\ visitor\ or\ staff
+numComments=8

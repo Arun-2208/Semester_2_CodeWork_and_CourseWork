@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=CarPark
+comment0.text=\r\n\ This\ CarPark\ class\ manages\ the\ list\ of\ Parking\ slots\r\n\ @author\ -\ Arun\ Ragavendhar\ -\ 104837257\r\n\ @version\ -\ 1.0\r\n
+comment1.params=
+comment1.target=CarPark()
+comment1.text=Constructor\ for\ initialising\ the\ List\ of\ slots
+comment2.params=slot
+comment2.target=boolean\ addSlot(ParkingSlot)
+comment2.text=method\ to\ add\ a\ new\ slot\ to\ the\ car\ park
+comment3.params=slotID
+comment3.target=boolean\ removeSlot(java.lang.String)
+comment3.text=method\ to\ remove\ a\ slot\ by\ by\ ID
+comment4.params=
+comment4.target=void\ listSlots()
+comment4.text=method\ to\ list\ all\ slots
+comment5.params=registrationNumber
+comment5.target=ParkingSlot\ findSlotByCar(java.lang.String)
+comment5.text=method\ to\ find\ a\ slot\ by\ car\ registration\ number
+comment6.params=slotID\ car
+comment6.target=boolean\ parkCar(java.lang.String,\ Car)
+comment6.text=method\ to\ park\ a\ car\ in\ a\ specific\ slot
+comment7.params=registrationNumber
+comment7.target=boolean\ removeCar(java.lang.String)
+comment7.text=method\ to\ remove\ a\ car\ by\ its\ registration\ number
+numComments=8

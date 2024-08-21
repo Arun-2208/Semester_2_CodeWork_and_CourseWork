@@ -7,29 +7,34 @@
  */
 class Car
 {
-    // instance variables
+    // attributes of a car
     private String registrationNumber;
     private String owner;
     private boolean isStaff;
     
+    /*Constructor to initialise the attributes of class Car*/
 
-    /**
-     * Constructor for objects of class Car
-     */
-    public Car()
+    public Car(String registrationNumber, String owner, boolean isStaff)
     {
-        System.out.println("Please enter the ");
+     this.registrationNumber = registrationNumber; 
+     this.owner = owner;
+     this.isStaff = isStaff;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+    /*method to get the registration number*/
+    
+    public String getRegistrationNumber()
     {
-        // put your code here
-        return x + y;
+       return registrationNumber;
+    }
+    /*method to get the owner*/
+    public String getOwner()
+    {
+        return owner;
+    }
+    /*method to get the user type is staff or visitor*/
+    public boolean isStaff()
+    {
+        return isStaff;
     }
 }

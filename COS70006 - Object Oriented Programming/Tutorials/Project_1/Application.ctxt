@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Application
+comment0.text=\r\n\ This\ Application\ class\ serves\ as\ the\ user\ interface\ and\ has\ the\ main\ method\r\n\ @author\ -\ Arun\ Ragavendhar\ -\ 104837257\r\n\ @version\r\n
+comment1.params=
+comment1.target=Application()
+comment1.text=Constructor\ creating\ and\ initializing\ class\ Application
+comment2.params=
+comment2.target=void\ start()
+comment2.text=method\ to\ with\ a\ switch\ case\ to\ offer\ a\ menu\ of\ options\ to\ the\ user
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+numComments=4

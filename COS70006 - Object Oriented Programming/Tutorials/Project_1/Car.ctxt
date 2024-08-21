@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Car
+comment0.text=\r\n\ This\ class\ has\ details\ about\ the\ car\r\n\r\n\ @author\ -\ Arun\ Ragavendhar\ -\ 104837257\r\n\ @version\ -\ 1.0\ -\ Project_1\r\n
+comment1.params=registrationNumber\ owner\ isStaff
+comment1.target=Car(java.lang.String,\ java.lang.String,\ boolean)
+comment1.text=Constructor\ to\ initialise\ the\ attributes\ of\ class\ Car
+comment2.params=
+comment2.target=java.lang.String\ getRegistrationNumber()
+comment2.text=method\ to\ get\ the\ registration\ number
+comment3.params=
+comment3.target=java.lang.String\ getOwner()
+comment3.text=method\ to\ get\ the\ owner
+comment4.params=
+comment4.target=boolean\ isStaff()
+comment4.text=method\ to\ get\ the\ user\ type\ is\ staff\ or\ visitor
+numComments=5
