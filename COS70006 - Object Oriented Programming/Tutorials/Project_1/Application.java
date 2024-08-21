@@ -2,7 +2,7 @@ import java.util.Scanner;
 /**
  * This Application class serves as the user interface and has the main method
  * @author - Arun Ragavendhar - 104837257
- * @version
+ * @version -1.0
  */
 public class Application
 {
@@ -30,26 +30,40 @@ public class Application
             System.out.println("6.Remove a car");
             System.out.println("7.Exit");
         
-        
             int choice = scan.nextInt();
             scan.nextLine();
             
             String slotID;
+            boolean isVisitorSlot;
+            boolean result;
             
             switch(choice)
             {
                 case 1:
-                    {
+                    {   // creating and adding slot to the car park 
+                        
                         System.out.println("please enter the slot ID");
                         slotID = scan.nextLine();
-                        ParkingSlot slot =new ParkingSlot();
-                        carPark.addSlot(slot);
+                        System.out.println("please enter 1.for Vistor type 0.for staff type"); 
+                        isVisitorSlot = scan.nextInt()!=0;
+                        
+                        ParkingSlot slot =new ParkingSlot(slotID,isVisitorSlot);
+                        result = carPark.addSlot(slot);
+                        if(result == true)
+                            System.out.println("Slot created and added \n");
+                        if(result == false)
+                            System.out.println("Slot already exists ");
+                            
                         break;
                     }
                 case 2:
                         break;
                 case 3:
+                    {
+                        
+                        carPark.listSlots();
                         break;
+                    }
                 case 4:
                         break;
                 case 5:
