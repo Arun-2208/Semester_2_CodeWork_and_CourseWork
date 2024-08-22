@@ -1,40 +1,54 @@
-
 /**
- * This class has details about the car
- *
- * @author - Arun Ragavendhar - 104837257
- * @version - 1.0 - Project_1
+ * The Car class represents a car with a registration number and ownership details.
  */
-class Car
-{
-    // attributes of a car
+public class Car {
+
     private String registrationNumber;
     private String owner;
     private boolean isStaff;
-    
-    /*Constructor to initialise the attributes of class Car*/
 
-    public Car(String registrationNumber, String owner, boolean isStaff)
-    {
-     this.registrationNumber = registrationNumber; 
-     this.owner = owner;
-     this.isStaff = isStaff;
+    /**
+     * Initializes a Car object with a registration number, owner's name, and staff status.
+     * @param registrationNumber The car's registration number (e.g., "T2345").
+     * @param owner The name of the car's owner.
+     * @param isStaff True if the owner is a staff member, false otherwise.
+     */
+    public Car(String registrationNumber, String owner, boolean isStaff) {
+        this.registrationNumber = registrationNumber;
+        this.owner = owner;
+        this.isStaff = isStaff;
     }
 
-    /*method to get the registration number*/
-    
-    public String getRegistrationNumber()
-    {
-       return registrationNumber;
+    /**
+     * Gets the registration number of the car.
+     * @return The registration number.
+     */
+    public String getRegistrationNumber() {
+        return registrationNumber;
     }
-    /*method to get the owner*/
-    public String getOwner()
-    {
+
+    /**
+     * Gets the name of the car's owner.
+     * @return The owner's name.
+     */
+    public String getOwner() {
         return owner;
     }
-    /*method to get the user type is staff or visitor*/
-    public boolean isStaff()
-    {
+
+    /**
+     * Checks if the owner is a staff member.
+     * @return True if the owner is a staff member, false otherwise.
+     */
+    public boolean isStaff() {
         return isStaff;
+    }
+
+    /**
+     * Provides a string representation of the car's details.
+     * @return A formatted string with the car's registration number, owner's name, and staff status.
+     */
+    @Override
+    public String toString() {
+        return "Registration: " + registrationNumber + ", Owner: " + owner + ", Staff: " + isStaff;
     }
 }

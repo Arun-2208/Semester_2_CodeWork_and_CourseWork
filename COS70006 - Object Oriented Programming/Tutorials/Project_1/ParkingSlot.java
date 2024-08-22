@@ -1,76 +1,116 @@
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
- * This class represents the individual parking slots (visitor or staff)
- * @author Arun Ragavendhar - 104837257
- * @version - 1.0 - 
+ * The ParkingSlot class represents a parking slot in the car park.
+ * It tracks whether the slot is occupied and holds information about the parked car.
  */
-public class ParkingSlot
-{
-    // attributes of a Parking Slot 
+public class ParkingSlot {
+
     private String slotID;
-    private boolean isVisitorSlot;
-    private Car parkedCar;
+    private boolean isStaffSlot;
+    private Car car;
+    private LocalDateTime parkedTime;
 
-    /*Constructor for initialising the attributes of class ParkingSlot*/
-    public ParkingSlot(String slotID, boolean isVisitorSlot)
-    {
+    /**
+     * Initializes a ParkingSlot with an ID and type.
+     * @param slotID The ID of the slot (e.g., "S01").
+     * @param isStaffSlot True if it's a staff slot, false if it's a visitor slot.
+     */
+    public ParkingSlot(String slotID, boolean isStaffSlot) {
         this.slotID = slotID;
-        this.isVisitorSlot = isVisitorSlot;
-        this.parkedCar = null;
+        this.isStaffSlot = isStaffSlot;
     }
 
-    /* method to check check if the slot is occupied or not*/
-    public boolean isOccupied()
-    {
-        return this.parkedCar != null;
+    /**
+     * Gets the ID of the slot.
+     * @return The slot ID.
+     */
+    public String getSlotID() {
+        return slotID;
     }
-    
-    /* method to add a car*/
-    public boolean parkCar(Car car)
-    {
-        if(this.isOccupied())
-            return false;           // slot is already occupied
-            
-        this.parkedCar = car;
-        return true;
-        
+
+    /**
+     * Checks if the slot is for staff.
+     * @return True if it's a staff slot, false otherwise.
+     */
+    public boolean isStaffSlot() {
+        return isStaffSlot;
     }
-    
-    /* method to remove a car*/    
-    public boolean removeCar()
-    {
-        if(!this.isOccupied())
-            return false;         // slot is is already empty
-            
-        this.parkedCar = null;
-            return true;
+
+    /**
+     * Checks if the slot is occupied by a car.
+     * @return True if the slot is occupied, false otherwise.
+     */
+    public boolean isOccupied() {
+        return car != null;
     }
-    
-    /* method to return information about a slot*/ 
-    public String getSlotInfo()
-    {
-        String info = "Slot ID : "+ this.slotID + ", Type : "+ (isVisitorSlot?"Visitor":"Staff"); 
-        
-        if(this.isOccupied())
-            info += ", Occupied by : " + this.parkedCar.getRegistrationNumber() + "(Owner : " + this.parkedCar.getOwner() + ")";
-        else
-            info +=", Unoccupied";
-            
-        return info;
+
+    /**
+     * Gets the car parked in the slot.
+     * @return The Car object, or null if the slot is empty.
+     */
+    public Car getCar() {
+        return car;
     }
-    
-     /* method to get the slot ID*/
-     
-     public String getSlotID()
-     {
-         return slotID;
-     }
-     
-     /* method to get the slot type is visitor or staff*/
-     
-     public String getIsVisitorSlot()
-     {
-         return slotID;
-     }
-    
+
+    /**
+     * Parks a car in the slot and records the current time.
+     * @param car The Car object to park.
+     */
+    public void parkCar(Car car) {
+        this.car = car;
+        this.parkedTime = LocalDateTime.now();
+    }
+
+    /**
+     * Removes the car from the slot and clears the parked time.
+     */
+    public void removeCar() {
+        this.car = null;
+        this.parkedTime = null;
+    }
+
+    /**
+     * Provides a string representation of the slot's details, including the parked car if present.
+     * @return A formatted string with slot and car details.
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Slot ID: ").append(slotID);
+        sb.append(", Type: ").append(isStaffSlot ? "Staff" : "Visitor");
+        sb.append(", Occupied: ").append(isOccupied());
+        if (isOccupied()) {
+            sb.append(", Car: ").append(car);
+            sb.append(", Parked Time: ").append(parkedTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+            sb.append(", Parking Duration: ").append(getParkingDuration());
+            sb.append(", Fee: $").append(calculateParkingFee());
+        }
+        return sb.toString();
+    }
+
+    /**
+     * Calculates the duration the car has been parked.
+     * @return A formatted string showing the duration.
+     */
+    private String getParkingDuration() {
+        if (parkedTime == null) return "N/A";
+        Duration duration = Duration.between(parkedTime, LocalDateTime.now());
+        long hours = duration.toHours();
+        long minutes = duration.toMinutesPart();
+        long seconds = duration.toSecondsPart();
+        return String.format("%02d hours %02d minutes %02d seconds", hours, minutes, seconds);
+    }
+
+    /**
+     * Calculates the parking fee based on the duration.
+     * @return The parking fee in dollars.
+     */
+    private int calculateParkingFee() {
+        if (parkedTime == null) return 0;
+        long hours = Duration.between(parkedTime, LocalDateTime.now()).toHours();
+        return (int) (hours + 1) * 5; // Charge for every hour or part thereof
+    }
 }
