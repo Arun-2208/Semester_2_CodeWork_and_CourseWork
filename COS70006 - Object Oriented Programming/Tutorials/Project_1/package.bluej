@@ -1,11 +1,11 @@
 #BlueJ package file
-dependency1.from=CarPark
-dependency1.to=ParkingSlot
+dependency1.from=ParkingSlot
+dependency1.to=Car
 dependency1.type=UsesDependency
 dependency2.from=CarPark
-dependency2.to=Car
+dependency2.to=ParkingSlot
 dependency2.type=UsesDependency
-dependency3.from=ParkingSlot
+dependency3.from=CarPark
 dependency3.to=Car
 dependency3.type=UsesDependency
 dependency4.from=Application

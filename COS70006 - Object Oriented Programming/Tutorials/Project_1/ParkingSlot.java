@@ -61,7 +61,7 @@ public class ParkingSlot {
      */
     public void parkCar(Car car) {
         this.car = car;
-        this.parkedTime = LocalDateTime.now();
+        this.parkedTime = LocalDateTime.now();  // Record the current time when the car is parked
     }
 
     /**
