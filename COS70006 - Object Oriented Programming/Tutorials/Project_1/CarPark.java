@@ -35,9 +35,9 @@ public class CarPark {
     public void addSlot(ParkingSlot slot) {
         if (getSlot(slot.getSlotID()) == null) {
             slots.add(slot);
-            System.out.println("Slot added successfully.");
+            System.out.println("\nSlot added successfully.");
         } else {
-            System.out.println("Slot ID already exists.");
+            System.out.println("\nSlot ID already exists.");
         }
     }
 
@@ -50,12 +50,12 @@ public class CarPark {
         if (slot != null) {
             if (!slot.isOccupied()) {
                 slots.remove(slot);
-                System.out.println("Slot deleted successfully.");
+                System.out.println("\nSlot deleted successfully.");
             } else {
-                System.out.println("Slot is occupied, cannot delete.");
+                System.out.println("\nSlot is occupied, cannot delete.");
             }
         } else {
-            System.out.println("Slot not found.");
+            System.out.println("\nSlot not found.");
         }
     }
 
@@ -63,8 +63,12 @@ public class CarPark {
      * Lists all the parking slots with their details.
      */
     public void listAllSlots() {
-        for (ParkingSlot slot : slots) {
-            System.out.println(slot);
+        if (slots.isEmpty()) {
+            System.out.println("\nNo parking slots available.");
+        } else {
+            for (ParkingSlot slot : slots) {
+                System.out.println(slot);
+            }
         }
     }
 
@@ -73,7 +77,7 @@ public class CarPark {
      */
     public void deleteAllUnoccupiedSlots() {
         slots.removeIf(slot -> !slot.isOccupied());
-        System.out.println("All unoccupied slots deleted.");
+        System.out.println("\nAll unoccupied slots deleted.");
     }
 
     /**
@@ -87,15 +91,16 @@ public class CarPark {
             if (!slot.isOccupied()) {
                 if (slot.isStaffSlot() == car.isStaff()) {
                     slot.parkCar(car);
-                    System.out.println("Car parked successfully.");
+                    System.out.println("\nCar parked successfully.");
+                    updateSlot(slot);  // Ensure the slot is updated in the list
                 } else {
-                    System.out.println("Car cannot be parked in this slot type.");
+                    System.out.println("\nCar cannot be parked in this slot type.");
                 }
             } else {
-                System.out.println("Slot is already occupied.");
+                System.out.println("\nSlot is already occupied.");
             }
         } else {
-            System.out.println("Slot not found.");
+            System.out.println("\nSlot not found.");
         }
     }
 
@@ -106,11 +111,11 @@ public class CarPark {
     public void findCar(String regNo) {
         for (ParkingSlot slot : slots) {
             if (slot.isOccupied() && slot.getCar().getRegistrationNumber().equals(regNo)) {
-                System.out.println("Car found in slot: " + slot);
+                System.out.println("\nCar found in slot: " + slot);
                 return;
             }
         }
-        System.out.println("Car not found.");
+        System.out.println("\nCar not found.");
     }
 
     /**
@@ -121,11 +126,11 @@ public class CarPark {
         for (ParkingSlot slot : slots) {
             if (slot.isOccupied() && slot.getCar().getRegistrationNumber().equals(regNo)) {
                 slot.removeCar();
-                System.out.println("Car removed successfully.");
+                System.out.println("\nCar removed successfully.");
                 return;
             }
         }
-        System.out.println("Car not found.");
+        System.out.println("\nCar not found.");
     }
 
     /**
@@ -133,12 +138,67 @@ public class CarPark {
      * @param slotID The ID of the slot to find.
      * @return The ParkingSlot object, or null if not found.
      */
-    private ParkingSlot getSlot(String slotID) {
+    public ParkingSlot getSlot(String slotID) {
         for (ParkingSlot slot : slots) {
             if (slot.getSlotID().equals(slotID)) {
                 return slot;
             }
         }
         return null;
+    }
+
+    /**
+     * Updates an existing slot in the list after modification.
+     * @param updatedSlot The updated ParkingSlot object.
+     */
+    private void updateSlot(ParkingSlot updatedSlot) {
+        for (int i = 0; i < slots.size(); i++) {
+            if (slots.get(i).getSlotID().equals(updatedSlot.getSlotID())) {
+                slots.set(i, updatedSlot);
+                break;
+            }
+        }
+    }
+
+    /**
+     * Checks if a slot ID is unique.
+     * @param slotID The slot ID to check.
+     * @return True if the slot ID is unique, false otherwise.
+     */
+    public boolean isSlotIDUnique(String slotID) {
+        return getSlot(slotID) == null;
+    }
+
+    /**
+     * Checks if a slot is available for parking a car.
+     * @param slotID The ID of the slot.
+     * @param isStaff True if the car is for a staff member, false if it's for a visitor.
+     * @return True if the slot is available, false otherwise.
+     */
+    public boolean isSlotAvailable(String slotID, boolean isStaff) {
+        ParkingSlot slot = getSlot(slotID);
+        if (slot == null) {
+            System.out.println("\nSlot not found.");
+            return false;
+        }
+        if (slot.isOccupied()) {
+            System.out.println("\nSlot is already occupied.");
+            return false;
+        }
+        if (slot.isStaffSlot() != isStaff) {
+            System.out.println("\nCar cannot be parked in this slot type.");
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Checks if a slot is occupied.
+     * @param slotID The ID of the slot to check.
+     * @return True if the slot is occupied, false otherwise.
+     */
+    public boolean isSlotOccupied(String slotID) {
+        ParkingSlot slot = getSlot(slotID);
+        return slot != null && slot.isOccupied();
     }
 }

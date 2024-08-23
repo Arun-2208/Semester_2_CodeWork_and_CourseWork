@@ -1,19 +1,19 @@
 #BlueJ class context
 comment0.target=Car
-comment0.text=\r\n\ The\ Car\ class\ represents\ a\ car\ with\ a\ registration\ number\ and\ ownership\ details.\r\n
+comment0.text=\r\n\ The\ Car\ class\ represents\ a\ car\ with\ a\ registration\ number\ and\ ownership\ details.\r\n\ \r\n\ @author\ -\r\n\ \ \ \ \ \ \ \ \ Arun\ Ragavendhar\ -\ 104837257\r\n\ @version\ -\ 1.0\r\n
 comment1.params=registrationNumber\ owner\ isStaff
 comment1.target=Car(java.lang.String,\ java.lang.String,\ boolean)
-comment1.text=\r\n\ Initializes\ a\ Car\ object\ with\ a\ registration\ number,\ owner's\ name,\ and\ staff\ status.\r\n\ @param\ registrationNumber\ The\ car's\ registration\ number\ (e.g.,\ "T2345").\r\n\ @param\ owner\ The\ name\ of\ the\ car's\ owner.\r\n\ @param\ isStaff\ True\ if\ the\ owner\ is\ a\ staff\ member,\ false\ otherwise.\r\n
+comment1.text=\r\n\ Initializes\ a\ Car\ object\ with\ a\ registration\ number,\ owner's\ name,\ and\ staff\r\n\ status.\r\n\ \r\n\ @param\ registrationNumber\ The\ car's\ registration\ number\ (e.g.,\ "T2345").\r\n\ @param\ owner\ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ name\ of\ the\ car's\ owner.\r\n\ @param\ isStaff\ \ \ \ \ \ \ \ \ \ \ \ True\ if\ the\ owner\ is\ a\ staff\ member,\ false\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ otherwise.\r\n\ @throws\ IllegalArgumentException\ if\ the\ registration\ number\ is\ invalid.\r\n
 comment2.params=
 comment2.target=java.lang.String\ getRegistrationNumber()
-comment2.text=\r\n\ Gets\ the\ registration\ number\ of\ the\ car.\r\n\ @return\ The\ registration\ number.\r\n
+comment2.text=\r\n\ Gets\ the\ registration\ number\ of\ the\ car.\r\n\ \r\n\ @return\ The\ registration\ number.\r\n
 comment3.params=
 comment3.target=java.lang.String\ getOwner()
-comment3.text=\r\n\ Gets\ the\ name\ of\ the\ car's\ owner.\r\n\ @return\ The\ owner's\ name.\r\n
+comment3.text=\r\n\ Gets\ the\ name\ of\ the\ car's\ owner.\r\n\ \r\n\ @return\ The\ owner's\ name.\r\n
 comment4.params=
 comment4.target=boolean\ isStaff()
-comment4.text=\r\n\ Checks\ if\ the\ owner\ is\ a\ staff\ member.\r\n\ @return\ True\ if\ the\ owner\ is\ a\ staff\ member,\ false\ otherwise.\r\n
+comment4.text=\r\n\ Checks\ if\ the\ owner\ is\ a\ staff\ member.\r\n\ \r\n\ @return\ True\ if\ the\ owner\ is\ a\ staff\ member,\ false\ otherwise.\r\n
 comment5.params=
 comment5.target=java.lang.String\ toString()
-comment5.text=\r\n\ Provides\ a\ string\ representation\ of\ the\ car's\ details.\r\n\ @return\ A\ formatted\ string\ with\ the\ car's\ registration\ number,\ owner's\ name,\ and\ staff\ status.\r\n
+comment5.text=\r\n\ Provides\ a\ string\ representation\ of\ the\ car's\ details.\r\n\ \r\n\ @return\ A\ formatted\ string\ with\ the\ car's\ registration\ number,\ owner's\ name,\r\n\ \ \ \ \ \ \ \ \ and\ staff\ status.\r\n
 numComments=6

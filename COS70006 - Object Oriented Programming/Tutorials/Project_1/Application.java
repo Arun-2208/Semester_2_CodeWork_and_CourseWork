@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 /**
  * The Application class is the entry point of the Parking Spot System.
@@ -7,6 +8,8 @@ import java.util.Scanner;
 public class Application {
 
     private CarPark carPark;
+    private static final Pattern SLOT_ID_PATTERN = Pattern.compile("^[SV]\\d{2}$");
+    private static final Pattern REG_NO_PATTERN = Pattern.compile("^[A-Z]\\d{4}$");
 
     public static void main(String[] args) {
         Application app = new Application();
@@ -18,13 +21,11 @@ public class Application {
      */
     public void run() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to the Parking Spot System!");
+        System.out.println("\nWelcome to the Parking Spot System!");
 
-        // Prompt user to set up the car park with staff and visitor slots
-        System.out.print("Enter number of staff slots: ");
-        int staffSlots = scanner.nextInt();
-        System.out.print("Enter number of visitor slots: ");
-        int visitorSlots = scanner.nextInt();
+        // Asking the user to set up the car park with staff and visitor slots
+        int staffSlots = getValidatedSlotCount(scanner, "\nEnter number of staff slots: ");
+        int visitorSlots = getValidatedSlotCount(scanner, "\nEnter number of visitor slots: ");
 
         carPark = new CarPark(staffSlots, visitorSlots);
         int choice;
@@ -32,8 +33,7 @@ public class Application {
         // Main menu loop
         do {
             displayMenu();
-            choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            choice = getValidatedMenuChoice(scanner);
 
             // Handle menu options
             switch (choice) {
@@ -59,10 +59,10 @@ public class Application {
                     removeCar(scanner);
                     break;
                 case 8:
-                    System.out.println("Program end!");
+                    System.out.println("\nProgram end!");
                     break;
                 default:
-                    System.out.println("Invalid option. Please try again.");
+                    System.out.println("\nInvalid option. Please try again.");
             }
 
         } while (choice != 8);
@@ -87,43 +87,96 @@ public class Application {
     }
 
     /**
-     * Adds a new parking slot to the car park.
+     * Validates the number of staff or visitor slots.
+     */
+    private int getValidatedSlotCount(Scanner scanner, String userInput) {
+        int count;
+        while (true) {
+            System.out.print(userInput);
+            if (scanner.hasNextInt()) {
+                count = scanner.nextInt();
+                scanner.nextLine();
+                if (count > 0) {
+                    return count;
+                }
+                System.out.println("\nPlease enter a positive number.");
+            } else {
+                System.out.println("\nInvalid input. Please enter a number.");
+                scanner.next(); // consume the invalid input
+            }
+        }
+    }
+
+    /**
+     * Validates the user's menu choice.
+     */
+    private int getValidatedMenuChoice(Scanner scanner) {
+        int choice;
+        while (true) {
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                scanner.nextLine();
+                if (choice >= 1 && choice <= 8) {
+                    return choice;
+                }
+                System.out.println("\nPlease choose a valid option between 1 and 8.");
+            } else {
+                System.out.println("\nInvalid input. Please enter a number.");
+                scanner.next(); // consume the invalid input
+            }
+        }
+    }
+
+    /**
+     * Adds a new parking slot to the car park after validating the slot ID.
      * @param scanner The Scanner object to read user input.
      */
     private void addParkingSlot(Scanner scanner) {
-        System.out.print("Enter slot ID (e.g., D01): ");
-        String slotID = scanner.nextLine().toUpperCase();
-        System.out.print("Is this a staff slot? (yes/no): ");
-        boolean isStaff = scanner.nextLine().equalsIgnoreCase("yes");
-        carPark.addSlot(new ParkingSlot(slotID, isStaff));
+        System.out.print("\nEnter slot ID (e.g., S01 , DO1): ");
+        String slotID = getValidatedSlotID(scanner);
+        if (carPark.isSlotIDUnique(slotID)) {
+            System.out.print("\nIs this a staff slot? (yes/no): ");
+            boolean isStaff = scanner.nextLine().equalsIgnoreCase("yes");
+            carPark.addSlot(new ParkingSlot(slotID, isStaff));
+        } else {
+            System.out.println("\nSlot ID must be unique. Entered slot ID already exists.");
+        }
     }
 
     /**
-     * Deletes a parking slot from the car park if it is not occupied.
+     * Deletes a parking slot from the car park after checking that it is unoccupied.
      * @param scanner The Scanner object to read user input.
      */
     private void deleteParkingSlot(Scanner scanner) {
-        System.out.print("Enter slot ID to delete: ");
-        String slotID = scanner.nextLine().toUpperCase();
-        carPark.deleteSlot(slotID);
+        System.out.print("\nEnter slot ID to delete: ");
+        String slotID = getValidatedSlotID(scanner);
+        if (carPark.isSlotOccupied(slotID)) {
+            System.out.println("\nCannot delete an occupied slot.");
+        } else {
+            carPark.deleteSlot(slotID);
+        }
     }
 
     /**
-     * Parks a car into a specified slot in the car park.
+     * Parks a car into a specified slot after validating input and conditions.
      * @param scanner The Scanner object to read user input.
      */
     private void parkCar(Scanner scanner) {
-        System.out.print("Enter slot ID: ");
-        String slotID = scanner.nextLine().toUpperCase();
-        System.out.print("Enter car registration number (e.g., T2345): ");
-        String regNo = scanner.nextLine().toUpperCase();
-        System.out.print("Enter owner's name: ");
+        System.out.print("\nEnter slot ID: ");
+        String slotID = getValidatedSlotID(scanner);
+        System.out.print("\nEnter car registration number (e.g., T6345): ");
+        String regNo = getValidatedRegNo(scanner);
+        System.out.print("\nEnter owner's name: ");
         String owner = scanner.nextLine();
-        System.out.print("Is the owner a staff member? (yes/no): ");
-        boolean isStaff = scanner.nextLine().equalsIgnoreCase("yes");
+        System.out.print("\nIs the owner a staff ? (yes/no): ");
+        boolean isStaff = (scanner.nextLine().equalsIgnoreCase("yes"));
 
-        Car car = new Car(regNo, owner, isStaff);
-        carPark.parkCar(slotID, car);
+        if (carPark.isSlotAvailable(slotID, isStaff)) {
+            Car car = new Car(regNo, owner, isStaff);
+            carPark.parkCar(slotID, car);
+        } else {
+            System.out.println("\nCannot park the car in this slot. Make sure it's available and the car type matches the slot type.");
+        }
     }
 
     /**
@@ -131,8 +184,8 @@ public class Application {
      * @param scanner The Scanner object to read user input.
      */
     private void findCar(Scanner scanner) {
-        System.out.print("Enter car registration number: ");
-        String regNo = scanner.nextLine().toUpperCase();
+        System.out.print("\nEnter car registration number: ");
+        String regNo = getValidatedRegNo(scanner);
         carPark.findCar(regNo);
     }
 
@@ -141,8 +194,40 @@ public class Application {
      * @param scanner The Scanner object to read user input.
      */
     private void removeCar(Scanner scanner) {
-        System.out.print("Enter car registration number: ");
-        String regNo = scanner.nextLine().toUpperCase();
+        System.out.print("\nEnter car registration number: ");
+        String regNo = getValidatedRegNo(scanner);
         carPark.removeCar(regNo);
+    }
+
+    /**
+     * Validates the slot ID using a regex pattern.
+     */
+    private String getValidatedSlotID(Scanner scanner) {
+        String slotID;
+        while (true) {
+            slotID = scanner.nextLine().toUpperCase();
+            if (SLOT_ID_PATTERN.matcher(slotID).matches()) {
+                return slotID;
+            }
+            else{
+            System.out.print("\nInvalid slot ID. Please enter a valid slot ID (e.g., S01 ,V01): ");
+            }
+        }
+    }
+
+    /**
+     * Validates the car registration number using a regex pattern.
+     */
+    private String getValidatedRegNo(Scanner scanner) {
+        String regNo;
+        while (true) {
+            regNo = scanner.nextLine().toUpperCase();
+            if (REG_NO_PATTERN.matcher(regNo).matches()) {
+                return regNo;
+            }
+            else{
+            System.out.print("\nInvalid registration number. Please enter a valid registration number (e.g., T2345): ");
+            }
+        }
     }
 }

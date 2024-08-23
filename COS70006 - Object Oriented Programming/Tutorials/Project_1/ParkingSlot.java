@@ -1,6 +1,7 @@
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.regex.Pattern;
 
 /**
  * The ParkingSlot class represents a parking slot in the car park.
@@ -12,13 +13,18 @@ public class ParkingSlot {
     private boolean isStaffSlot;
     private Car car;
     private LocalDateTime parkedTime;
+    private static final Pattern SLOT_ID_PATTERN = Pattern.compile("^[SV]\\d{2}$");
 
     /**
      * Initializes a ParkingSlot with an ID and type.
      * @param slotID The ID of the slot (e.g., "S01").
      * @param isStaffSlot True if it's a staff slot, false if it's a visitor slot.
+     * @throws IllegalArgumentException if the slot ID is invalid.
      */
     public ParkingSlot(String slotID, boolean isStaffSlot) {
+        if (!SLOT_ID_PATTERN.matcher(slotID).matches()) {
+            throw new IllegalArgumentException("\nInvalid slot ID. Must be an uppercase letter followed by 2 digits.");
+        }
         this.slotID = slotID;
         this.isStaffSlot = isStaffSlot;
     }
@@ -58,16 +64,24 @@ public class ParkingSlot {
     /**
      * Parks a car in the slot and records the current time.
      * @param car The Car object to park.
+     * @throws IllegalStateException if the slot is already occupied.
      */
     public void parkCar(Car car) {
+        if (isOccupied()) {
+            throw new IllegalStateException("\nSlot is already occupied.");
+        }
         this.car = car;
         this.parkedTime = LocalDateTime.now();  // Record the current time when the car is parked
     }
 
     /**
      * Removes the car from the slot and clears the parked time.
+     * @throws IllegalStateException if the slot is already empty.
      */
     public void removeCar() {
+        if (!isOccupied()) {
+            throw new IllegalStateException("\nSlot is already empty.");
+        }
         this.car = null;
         this.parkedTime = null;
     }
