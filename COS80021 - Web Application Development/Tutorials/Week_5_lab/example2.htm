@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Adding New Elements</title>
+<style type="text/css">
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: small;
+	font-weight: bold;
+}
+.newDiv {
+	background-color:#ffcccc;
+}
+</style>
+<script type="text/javascript">
+function newOne() {
+var newEl = document.createElement('p');
+var newTx = document.createTextNode('This is the new paragraph.');
+newEl.appendChild(newTx);
+var newPara =document.getElementById('newText');
+
+newPara.appendChild(newEl);
+}
+function newColor() {
+document.getElementById('newText').style.color="red";
+}
+</script>
+</head>
+<body>
+<p>This is the first paragraph on the page.</p>
+<div class="newDiv" id="newText"></div>
+<p>This is the next paragraph on the original page.</p>
+<form>
+<input type="button" value="Add a new paragraph" onclick="newOne()" /><br /><br />
+<input type="button" value="Make it red" onclick="newColor()" />
+</form>
+</body>
+</html>

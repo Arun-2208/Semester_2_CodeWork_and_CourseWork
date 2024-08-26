@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise (d)</title>
+    <style type="text/css">
+        #addressBook ,th,tr,td{
+            border:1px solid black;
+            border-collapse:collapse;
+        }
+    </style>
+</head>
+<body>
+    <table id="addressBook">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <button onclick="appendRow()">Add New Row</button>
+
+    <script>
+        let addressBook = [
+            { fname: "John", lname: "Doe", email: "john.doe@example.com" },
+            { fname: "Jane", lname: "Smith", email: "jane.smith@example.com" }
+        ];
+
+        function writeAddressBook() {
+            let tableBody = document.querySelector("#addressBook tbody");
+            tableBody.innerHTML = "";
+
+            addressBook.forEach(item => {
+                let row = document.createElement("tr");
+                row.innerHTML = `<td>${item.fname}</td><td>${item.lname}</td><td>${item.email}</td>`;
+                addToggleEvent(row);
+                tableBody.appendChild(row);
+            });
+        }
+
+        function appendRow() {
+            let fname = prompt("Enter first name:", "First");
+            let lname = prompt("Enter last name:", "Last");
+            let email = prompt("Enter email:", "email@example.com");
+
+            if (fname && lname && email) {
+                let tableBody = document.querySelector("#addressBook tbody");
+                let newRow = document.createElement("tr");
+
+                newRow.innerHTML = `<td>${fname}</td><td>${lname}</td><td>${email}</td>`;
+                addToggleEvent(newRow);
+                tableBody.appendChild(newRow);
+            }
+        }
+
+        function addToggleEvent(row) {
+            row.querySelectorAll("td").forEach(cell => {
+                cell.addEventListener("click", function() {
+                    if (this.style.fontWeight === "bold") {
+                        this.style.fontWeight = "normal";
+                    } else {
+                        this.style.fontWeight = "bold";
+                    }
+                });
+            });
+        }
+
+        writeAddressBook();
+    </script>
+</body>
+</html>

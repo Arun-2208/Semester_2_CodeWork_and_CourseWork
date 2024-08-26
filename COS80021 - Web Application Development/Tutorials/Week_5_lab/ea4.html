@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise (e)</title>
+    <style>
+        .highlight {
+            font-size: 20px;
+            background-color: yellow;
+        }
+        #addressBook ,th,tr,td{
+            border:1px solid black;
+            border-collapse:collapse;
+        }
+    </style>
+</head>
+<body>
+    <table id="addressBook">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <button onclick="appendRow()">Add New Row</button>
+
+    <script>
+        let addressBook = [
+            { fname: "John", lname: "Doe", email: "john.doe@example.com" },
+            { fname: "Jane", lname: "Smith", email: "jane.smith@example.com" }
+        ];
+
+        function writeAddressBook() {
+            let tableBody = document.querySelector("#addressBook tbody");
+            tableBody.innerHTML = "";
+
+            addressBook.forEach(item => {
+                let row = document.createElement("tr");
+                row.innerHTML = `<td>${item.fname}</td><td>${item.lname}</td><td>${item.email}</td>`;
+                addEvents(row);
+                tableBody.appendChild(row);
+            });
+        }
+
+        function appendRow() {
+            let fname = prompt("Enter first name:", "First");
+            let lname = prompt("Enter last name:", "Last");
+            let email = prompt("Enter email:", "email@example.com");
+
+            if (fname && lname && email) {
+                let tableBody = document.querySelector("#addressBook tbody");
+                let newRow = document.createElement("tr");
+                newRow.style.backgroundColor = "lightgrey";
+
+                newRow.innerHTML = `<td>${fname}</td><td>${lname}</td><td>${email}</td>`;
+                addEvents(newRow);
+                tableBody.appendChild(newRow);
+            }
+        }
+
+        function addEvents(row) {
+            row.querySelectorAll("td").forEach(cell => {
+                cell.addEventListener("click", function() {
+                    this.style.fontWeight = this.style.fontWeight === "bold" ? "normal" : "bold";
+                });
+
+                cell.addEventListener("mouseover", function() {
+                    this.classList.add("highlight");
+                });
+
+                cell.addEventListener("mouseout", function() {
+                    this.classList.remove("highlight");
+                });
+            });
+        }
+
+        writeAddressBook();
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>example1</title>
+    
+</head>
+<body>
+    <p><label>Please enter a number</label><input type = "text" id ="userInput"></p>
+    <p><input type ="submit" onclick = generateNumber() value ="submit"></p>
+    <p id="answer"></p>
+</body>
+<script>
+    function generateNumber(){
+
+        let input = document.getElementById("userInput").value;
+        let answer = document.getElementById("answer");
+        answer.innerHTML =``;
+        let i = input;
+
+        while(i>=1){
+
+            if((i==input) || (i==1) || ((input%i)!=0)){
+                answer.innerHTML +=`${i}<br>`;
+            }
+            i--;
+        }
+    }
+
+</script>
+</html>
