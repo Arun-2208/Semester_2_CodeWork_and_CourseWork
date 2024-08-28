@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise (e)</title>
+    <title>part-5</title>
     <style>
         .highlight {
             font-size: 20px;
@@ -60,22 +60,30 @@
 
                 newRow.innerHTML = `<td>${fname}</td><td>${lname}</td><td>${email}</td>`;
                 addEvents(newRow);
+                newRow.style.color = "red";
                 tableBody.appendChild(newRow);
             }
         }
 
         function addEvents(row) {
             row.querySelectorAll("td").forEach(cell => {
+                
                 cell.addEventListener("click", function() {
-                    this.style.fontWeight = this.style.fontWeight === "bold" ? "normal" : "bold";
+                    if (this.style.fontWeight== "normal") {
+                        this.style.fontWeight = "bold";
+                    } else {
+                        this.style.fontWeight = "normal";
+                    }
                 });
 
                 cell.addEventListener("mouseover", function() {
                     this.classList.add("highlight");
+                    this.style.fontSize = "larger";
                 });
 
                 cell.addEventListener("mouseout", function() {
                     this.classList.remove("highlight");
+                    this.style.fontSize = "";
                 });
             });
         }

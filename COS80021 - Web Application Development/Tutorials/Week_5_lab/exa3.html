@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise (d)</title>
+    <title>part-3and4</title>
     <style type="text/css">
         #addressBook ,th,tr,td{
             border:1px solid black;
@@ -55,6 +55,7 @@
 
                 newRow.innerHTML = `<td>${fname}</td><td>${lname}</td><td>${email}</td>`;
                 addToggleEvent(newRow);
+                newRow.style.color = "red";
                 tableBody.appendChild(newRow);
             }
         }
@@ -62,11 +63,12 @@
         function addToggleEvent(row) {
             row.querySelectorAll("td").forEach(cell => {
                 cell.addEventListener("click", function() {
-                    if (this.style.fontWeight === "bold") {
-                        this.style.fontWeight = "normal";
-                    } else {
+                    if (this.style.fontWeight== "normal") {
                         this.style.fontWeight = "bold";
+                    } else {
+                        this.style.fontWeight = "normal";
                     }
+                    
                 });
             });
         }

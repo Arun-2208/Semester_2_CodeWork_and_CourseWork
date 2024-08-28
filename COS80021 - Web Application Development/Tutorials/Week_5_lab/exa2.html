@@ -1,66 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN� "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>addressbook2</title>
-</head>
-<style type="text/css">
-    #addressBook ,th,tr,td{
-        border:1px solid black;
-        border-collapse:collapse;
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>part-2</title>
+  <style type="text/css">
+      .ab {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: small;
+	background-color: #CCFFCC;
+	padding: 5px;
+	height: 100px;
+	width: 350px;
+	border: 1px solid black;
+    border-collapse: collapse;
+
     }
-</style>
-<body>
-    <table id="addressBook">
-        <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-    <button onclick="appendRow()">Add New Row</button>
+  </style>
+  
+  <script type="text/javascript">
+    function addressBookItem (fname, lname, email) {
+        this.fname= fname;
+        this.lname = lname; 
+        this.email = email;
+    }
+	
+	addressBookItem.prototype.write = function() {
+       
+       
+        let adrbook = `<tr><td>${this.fname}</td><td>${this.lname}</td><td>${this.email}</td></tr>`;
 
-    <script>
-        let addressBook = [
-            { fname: "John", lname: "Doe", email: "john.doe@example.com" },
-            { fname: "Jane", lname: "Smith", email: "jane.smith@example.com" }
-        ];
-
-        function writeAddressBook() {
-            let tableBody = document.querySelector("#addressBook tbody");
-            tableBody.innerHTML = "";
-
-            addressBook.forEach(item => {
-                let row = `<tr>
-                    <td>${item.fname}</td>
-                    <td>${item.lname}</td>
-                    <td>${item.email}</td>
-                </tr>`;
-                tableBody.innerHTML += row;
-            });
-        }
-
-        function appendRow() {
-            let fname = prompt("Enter first name:", "First");
-            let lname = prompt("Enter last name:", "Last");
-            let email = prompt("Enter email:", "email@example.com");
-
-            if (fname && lname && email) {
-                let tableBody = document.querySelector("#addressBook tbody");
-                let newRow = document.createElement("tr");
-
-                newRow.innerHTML = `<td>${fname}</td><td>${lname}</td><td>${email}</td>`;
-                tableBody.appendChild(newRow);
-            }
-        }
-
-        writeAddressBook();
+        document.write(adrbook);
+    }
+	
+</script>
+</head>
+<body> 
+    <table class="ab" border="1">
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>email</th>
+        </tr>
+    <script type="text/javascript">
+        var aB1 = new addressBookItem('Roger', 'Williams', 'rwilliams@gmail.com');
+        var aB2 = new addressBookItem ('Rose', 'Schultz', 'rose_s@earthlink.net');
+        aB1.write();
+        aB2.write();
+        
     </script>
+    </table>
 </body>
 </html>

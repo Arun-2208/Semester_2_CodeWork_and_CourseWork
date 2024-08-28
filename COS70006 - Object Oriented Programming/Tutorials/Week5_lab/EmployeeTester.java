@@ -1,3 +1,8 @@
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 /**
  * EmployeeTester.java
  *
@@ -5,13 +10,10 @@
  * It provides methods to add employees to the list, display them, 
  * and find and update employee details based on their ID.
  * 
- *  @author Author: Arun Ragavendhar - 104837257
+ * @author Author: Arun Ragavendhar - 104837257
  * @version - 1.0 - lab 5 
  */
 
- import java.util.ArrayList;
- import java.util.List;
- import java.util.Scanner;
  
  class EmployeeTester {
  
