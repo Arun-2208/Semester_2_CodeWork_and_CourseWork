@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+    <title>Checking Courses</title>
+
+    <script language = "javascript">
+      function getDoc()
+      {	 
+
+      if (window.XMLHttpRequest) {
+          request = new XMLHttpRequest();
+       } 
+	   else if (window.ActiveXObject) {
+          request = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+	    if (request.overrideMimeType) {         
+		  request.overrideMimeType("text/xml");
+		}
+
+        if(request) {
+          request.open("GET", "classes.xml", true); 
+
+          request.onreadystatechange = function() 
+		  
+          { 
+            if ((request.readyState == 4) && (request.status == 200)) { 
+            var xmlDocument = request.responseXML;
+			findClass(xmlDocument);
+            }
+           
+          } 
+		  request.send(null); 
+          } 
+		  
+      }
+	  
+	  function findClass(doc) {
+	  
+	  var titleNode = doc.getElementsByTagName('title');
+	  for (i=0; i<titleNode.length; i++) {
+	    var title = titleNode[i];
+	    var titleValue = title.firstChild.nodeValue;
+	  
+	    var myEl = document.createElement('p');
+	    var newText = titleValue + " is the name of a course in the Computer Science department.";
+        var myTx = document.createTextNode(newText);
+        myEl.appendChild(myTx);
+        var course = document.getElementById('title');
+        course.appendChild(myEl);
+	  
+	    var creditStatus = doc.getElementsByTagName('credits');
+	    var creditAttr = creditStatus[i].attributes;
+	    var reqAttr = creditAttr.getNamedItem('req');
+	    var reqVal = reqAttr.nodeValue;
+	  
+	      if (reqVal == 'yes') {
+	        var addlText = " This is a required course.";
+	        var addlText2 = document.createTextNode(addlText);
+	        myEl.appendChild(addlText2);
+	      }
+	  
+	  }
+	  }
+	  
+      
+    </script>
+
+  </head>
+
+ <body>
+
+    <h1>Checking courses</h1>
+    <form>
+      <input type = "button" id="reqDoc" value = "Check courses"> 
+    </form>
+<script type="text/javascript">
+var myDoc = document.getElementById('reqDoc');
+myDoc.onclick = getDoc;
+</script>
+<div id="title"></div>
+</body>
+</html>

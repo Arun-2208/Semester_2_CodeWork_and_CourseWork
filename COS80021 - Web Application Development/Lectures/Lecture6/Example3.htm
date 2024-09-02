@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Checking Courses</title>
+    <script language = "javascript">
+
+	var classInfo = ""; // initial value for output
+
+      function getDoc()
+      {	 
+        if (window.XMLHttpRequest) {
+          request = new XMLHttpRequest();
+        } 
+	  else if (window.ActiveXObject) {
+          request = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+	  if (request.overrideMimeType) {         
+	    request.overrideMimeType("text/xml");
+	  }
+
+        if(request) {
+          request.open("GET", "classes2.xml", true); 
+
+          request.onreadystatechange = function() 	  
+          { 
+            if ((request.readyState == 4) && (request.status == 200)) { 
+               var xmlDocument = request.responseXML;
+		   root = xmlDocument.documentElement;
+		   getInfo(root);
+	         var display = document.getElementById('info');
+	         display.innerHTML = classInfo;
+            }
+          }
+ 
+	    request.send(null); 
+        } 	  
+      }
+
+	function getInfo(n)
+	{
+	
+		var i, indent;
+		indent = "2em";
+		if (n.nodeType == 3)
+			classInfo += "<SPAN>" + n.nodeValue + "</SPAN>";
+		else if (n.nodeType == 1)
+		{
+			classInfo += "<DIV Style='margin-left:" + indent + " '>" + 
+				 "<b>" + n.nodeName+ "</b>" + getAttributes(n) + "<br>";
+			for( i = 0; i < n.childNodes.length; i++ ) 
+				getInfo(n.childNodes.item(i)); 
+				classInfo +="</DIV>";
+		}
+	}
+	
+	function getAttributes(el)
+	{
+		var i;
+		var strResult = "";
+		xmapAtts = el.attributes;
+		for (i = 0; i<xmapAtts.length; i++)
+		   strResult += ' ' + xmapAtts.item(i).nodeName + '="' + xmapAtts.item(i).nodeValue + '"';
+		return(strResult);		
+	}
+      
+    </script>
+</head>
+
+<body>
+
+    <h1>Checking courses</h1>
+    <form>
+      <input type = "button" id="reqDoc" value = "Check courses"> 
+    </form>
+    <script type="text/javascript">
+       var myDoc = document.getElementById('reqDoc');
+       myDoc.onclick = getDoc;
+    </script>
+    <div id="info"></div>
+</body>
+</html>

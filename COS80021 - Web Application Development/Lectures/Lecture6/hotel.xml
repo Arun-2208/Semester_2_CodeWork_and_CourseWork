@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<hotels>
+<hotel>
+<City>Paris</City>
+<Name>La Splendide</Name>
+<Type>Budget</Type>
+<Price>100</Price>
+</hotel>
+<hotel>
+<City>London</City>
+<Name>The Rilton</Name>
+<Type>Luxury</Type>
+<Price>300</Price>
+</hotel>
+</hotels>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<classes>
+  <class>
+    <classID>CS115</classID>
+    <department>ComputerScience</department>
+    <credits req="yes">3</credits>
+    <instructor>Adams</instructor>
+    <title>Programming Concepts</title>
+  </class>
+  <class>
+    <classID semester="fall">CS205</classID>
+    <department>ComputerScience</department>
+    <credits req="yes">3</credits>
+    <instructor>Dykes</instructor>
+    <title>JavaScript</title>
+  </class>
+  <class>
+    <classID semester="fall">CS255</classID>
+    <department>ComputerScience</department>
+    <credits req="no">3</credits>
+    <instructor>Brunner</instructor>
+    <title>Java</title>
+  </class>
+</classes>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="retrieveHotelInfo.js"></script> 
+</head> 
+<body>
+    <h2>Hotel Booking Information</h2>
+
+    <!-- Destination Selection -->
+    <label for="selectCity">Destination:</label><br /> 
+    <select id="selectCity" onchange="retrieveInformation()">
+        <option value="London" selected="true">London</option>
+        <option value="Paris">Paris</option>
+        <option value="New York">New York</option>
+        <option value="Chicago">Chicago</option>
+        <option value="Seattle">Seattle</option>
+    </select>
+    <br /><br />
+
+    <!-- Price Range Selection -->
+    <label for="priceRange">Price Range:</label><br />
+    <label>
+        <input name="range" value="Budget" type="radio" onclick="retrieveInformation()"/> Budget
+    </label>
+    <label>
+        <input name="range" value="Standard" type="radio" onclick="retrieveInformation()" checked="true"/> Standard
+    </label>
+    <label>
+        <input name="range" value="Luxury" type="radio" onclick="retrieveInformation()"/> Luxury
+    </label>
+
+    <br /><br />
+
+    <!-- Information Display -->
+    <div id="information">
+        <!-- Results will be displayed here -->
+    </div>
+
+    <!-- Error Display -->
+    <div id="error" style="color: red; display: none;">
+        Error: Unable to retrieve hotel information. Please try again.
+    </div>
+</body>
+</html>

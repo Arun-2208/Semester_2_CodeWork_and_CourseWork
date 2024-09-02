@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<hotels>
+    <!-- Paris Hotels -->
+    <hotel>
+        <City>Paris</City>
+        <Name>La Splendide</Name>
+        <Type>Budget</Type>
+        <Price>100</Price>
+        <City>Paris</City>
+        <Name>La Meridian</Name>
+        <Type>Budget</Type>
+        <Price>240</Price>
+    </hotel>
+    <hotel>
+        <City>Paris</City>
+        <Name>La Parisienne</Name>
+        <Type>Standard</Type>
+        <Price>150</Price>
+    </hotel>
+    <hotel>
+        <City>Paris</City>
+        <Name>Le Luxe</Name>
+        <Type>Luxury</Type>
+        <Price>120</Price>
+    </hotel>
+
+    <!-- London Hotels -->
+    <hotel>
+        <City>London</City>
+        <Name>The Rilton</Name>
+        <Type>Luxury</Type>
+        <Price>300</Price>
+    </hotel>
+    <hotel>
+        <City>London</City>
+        <Name>The Melton</Name>
+        <Type>Luxury</Type>
+        <Price>500</Price>
+    </hotel>
+    <hotel>
+    <City>London</City>
+        <Name>The viking</Name>
+        <Type>Luxury</Type>
+        <Price>600</Price>
+    </hotel>
+    <hotel>
+        <City>London</City>
+        <Name>Budget Inn</Name>
+        <Type>Budget</Type>
+        <Price>250</Price>
+    </hotel>
+    <hotel>
+        <City>London</City>
+        <Name>Moderate Stay</Name>
+        <Type>Standard</Type>
+        <Price>220</Price>
+    </hotel>
+
+    <!-- New York Hotels -->
+    <hotel>
+        <City>New York</City>
+        <Name>The Hilton</Name>
+        <Type>Standard</Type>
+        <Price>400</Price>
+    </hotel>
+    <hotel>
+        <City>New York</City>
+        <Name>Empire Budget</Name>
+        <Type>Budget</Type>
+        <Price>350</Price>
+    </hotel>
+    <hotel>
+        <City>New York</City>
+        <Name>Luxury Empire</Name>
+        <Type>Luxury</Type>
+        <Price>200</Price>
+    </hotel>
+     <hotel>
+        <City>New York</City>
+        <Name>Luxury Carnage</Name>
+        <Type>Luxury</Type>
+        <Price>600</Price>
+    </hotel>
+
+    <!-- Chicago Hotels -->
+    <hotel>
+        <City>Chicago</City>
+        <Name>The RainTree</Name>
+        <Type>Budget</Type>
+        <Price>450</Price>
+    </hotel>
+    <hotel>
+        <City>Chicago</City>
+        <Name>Windy City Hotel</Name>
+        <Type>Standard</Type>
+        <Price>330</Price>
+    </hotel>
+    <hotel>
+        <City>Chicago</City>
+        <Name>Luxury Stay</Name>
+        <Type>Luxury</Type>
+        <Price>310</Price>
+    </hotel>
+
+    <!-- Seattle Hotels -->
+    <hotel>
+        <City>Seattle</City>
+        <Name>Budget Nook</Name>
+        <Type>Budget</Type>
+        <Price>500</Price>
+    </hotel>
+    <hotel>
+        <City>Seattle</City>
+        <Name>Seattle Comfort</Name>
+        <Type>Standard</Type>
+        <Price>480</Price>
+    </hotel>
+    <hotel>
+        <City>Seattle</City>
+        <Name>Luxury Wave</Name>
+        <Type>Luxury</Type>
+        <Price>410</Price>
+    </hotel>
+</hotels>
