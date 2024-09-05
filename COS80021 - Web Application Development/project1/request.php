@@ -145,7 +145,7 @@
 
                     try {
                         // Sending a confirmation email to the customer with the request details 
-                        $message = "Thank you for using Arun Ragav's Shipping!\n Your request is confirmed \n Customer Number : $customer_number \n Request number : $request_number\n. Cost : $$cost\n . We will pick up the item at $pickup_time on $pickup_date.\n"
+                        $message = "Thank you for using Arun Ragav's Shipping!\n Your request is confirmed \n Customer Number : $customer_number \n Request number : $request_number\n Cost : $$cost\n We will pick up the item at $pickup_time on $pickup_date.\n"
                                     ."Best Regards\n"
                                     ."Arun Ragavendhar";
                         $to = $customer['email'];
