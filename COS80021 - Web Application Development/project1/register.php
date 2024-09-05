@@ -1,19 +1,25 @@
 
-<!-- register.php -->
+<!-- 
+-- @file name : register.php
+-- @author name : Arun Ragavendhar Arunachalam Palaniyappan - 104837257
+-- @assignment name : Project1 - COS80021 - Web Application Development 
+-- @page details : This page handles customer registration, including input validation and customer data insertion into the database.
+-- @date : 05/09/2024
+-->
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title>Registration page</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Register</h1>
     <a href = "shiponline.php"><button class = "button">Return to Home page</button></a><br><br>
 
-
-    <!-- Registration form -->
+    <!-- Registration form to get the user data-->
     <form method="POST">
         Name: <input type="text" name="name" required><br>
         Password: <input type="password" name="password" required maxlength = 30><br>
@@ -26,7 +32,6 @@
 </html>
 
 <?php
-
     // Database connection details
     $host = 'feenix-mariadb.swin.edu.au';
     $user = 's104837257';

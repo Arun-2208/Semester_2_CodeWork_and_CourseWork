@@ -1,6 +1,12 @@
 
+<!-- 
+-- @file name : shiponline.php
+-- @author name : Arun Ragavendhar Arunachalam Palaniyappan - 104837257
+-- @assignment name : Project1 - COS80021 - Web Application Development 
+-- @page details : This is the homepage of Arun Ragav Shipping, providing links to registration, login/request, and administration pages.
+-- @date : 05/09/2024
+-->
 
-<!-- shiponline.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

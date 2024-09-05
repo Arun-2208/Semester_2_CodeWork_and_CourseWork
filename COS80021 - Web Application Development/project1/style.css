@@ -1,4 +1,13 @@
-/* General Styles */
+
+/* 
+@file name: style.css
+@description: This CSS file provides styling for all pages of the Arun Ragav Shipping web application.
+@assignment name: Project1 - COS80021 - Web Application Development
+@author: Arun Ragavendhar Arunachalam Palaniyappan - 104837257
+*/
+
+
+/* General Styles for all the HTML elements common to all pages*/
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #e9ecef;
@@ -185,25 +194,4 @@ tr:hover {
     border: 1px solid #28a745;
     background-color: #d4edda;
     border-radius: 5px;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 600px) {
-    form {
-        max-width: 90%;
-        padding: 20px;
-    }
-
-    table {
-        width: 100%;
-    }
-
-    ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    ul li {
-        margin: 10px 0;
-    }
 }

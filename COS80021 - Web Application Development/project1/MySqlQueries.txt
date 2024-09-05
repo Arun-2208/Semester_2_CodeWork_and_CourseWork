@@ -1,0 +1,62 @@
+
+
+
+// SQL query to create customers table
+
+CREATE TABLE customers (
+    customer_number INT(11) AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    phone_number VARCHAR(20) NOT NULL
+);
+
+
+
+
+
+// SQL query to creat requests table
+
+
+
+CREATE TABLE requests (
+    request_number INT(11) AUTO_INCREMENT PRIMARY KEY,
+    customer_number INT(11) NOT NULL,
+    request_date TIMESTAMP NOT NULL,
+    item_description VARCHAR(255) NOT NULL,
+    weight INT(11) NOT NULL,
+    pickup_address VARCHAR(255) NOT NULL,
+    pickup_suburb VARCHAR(255) NOT NULL,
+    pickup_date DATE NOT NULL,
+    pickup_time TIME NOT NULL,
+    receiver_name VARCHAR(255) NOT NULL,
+    delivery_address VARCHAR(255) NOT NULL,
+    delivery_suburb VARCHAR(255) NOT NULL,
+    delivery_state VARCHAR(4) NOT NULL,
+    FOREIGN KEY (customer_number) REFERENCES customers(customer_number)
+);
+
+
+// SQL query to insert new customer data to create a new record in the customer table
+
+   INSERT INTO customers (name, password, email, phone_number) VALUES ('$name', '$password', '$email', '$phone');
+   
+// SQL query to insert a new request into the requests table
+   
+   INSERT INTO requests (customer_number, request_date, item_description, weight, pickup_address, pickup_suburb, pickup_date, pickup_time, receiver_name, delivery_address, delivery_suburb, delivery_state) 
+   VALUES ('$customer_number', NOW(), '$item_description', '$weight', '$pickup_address', '$pickup_suburb', '$pickup_date', '$pickup_time', '$receiver_name', '$delivery_address', '$delivery_suburb', '$delivery_state');
+
+                
+
+// SQL query for retrieving requests based on request date
+    SELECT customer_number, request_number, item_description, weight, pickup_suburb, pickup_date, delivery_suburb, delivery_state 
+    FROM requests WHERE DATE(request_date) = DATE('$selected_date');
+            } 
+           
+// SQL query for retrieving requests based on pick up date
+    "SELECT r.customer_number, c.name, c.phone_number, r.request_number, r.item_description, r.weight, r.pickup_address, r.pickup_suburb, r.pickup_time, r.delivery_suburb, r.delivery_state 
+     FROM requests r
+     JOIN customers c ON r.customer_number = c.customer_number
+     WHERE r.pickup_date = '$selected_date'
+     ORDER BY r.pickup_suburb, r.delivery_state, r.delivery_suburb ASC;
+            
