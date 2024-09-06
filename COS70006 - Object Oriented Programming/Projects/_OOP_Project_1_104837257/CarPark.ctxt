@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=CarPark
-comment0.text=\r\n\ The\ CarPark\ class\ manages\ a\ collection\ of\ parking\ slots.\r\n\ It\ allows\ for\ adding,\ deleting,\ listing,\ and\ finding\ slots\ and\ cars.\r\n
+comment0.text=\r\n\ The\ CarPark\ class\ manages\ a\ collection\ of\ parking\ slots.\r\n\ It\ allows\ for\ adding,\ deleting,\ listing,\ and\ finding\ slots\ and\ cars.\r\n\ @author\ -\ Arun\ Ragavendhar\ -\ 104837257\r\n\ @version\ -\ 1.0\ -\ 06/09/2024\r\n
 comment1.params=staffSlots\ visitorSlots
 comment1.target=CarPark(int,\ int)
 comment1.text=\r\n\ Initializes\ the\ CarPark\ with\ a\ specified\ number\ of\ staff\ and\ visitor\ slots.\r\n\ @param\ staffSlots\ Number\ of\ staff\ slots.\r\n\ @param\ visitorSlots\ Number\ of\ visitor\ slots.\r\n

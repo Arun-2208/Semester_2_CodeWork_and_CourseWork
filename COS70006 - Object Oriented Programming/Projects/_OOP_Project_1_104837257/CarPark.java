@@ -4,6 +4,8 @@ import java.util.List;
 /**
  * The CarPark class manages a collection of parking slots.
  * It allows for adding, deleting, listing, and finding slots and cars.
+ * @author - Arun Ragavendhar - 104837257
+ * @version - 1.0 - 06/09/2024
  */
 public class CarPark {
 

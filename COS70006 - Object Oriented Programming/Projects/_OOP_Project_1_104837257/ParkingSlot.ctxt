@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ParkingSlot
-comment0.text=\r\n\ The\ ParkingSlot\ class\ represents\ a\ parking\ slot\ in\ the\ car\ park.\r\n\ It\ tracks\ whether\ the\ slot\ is\ occupied\ and\ holds\ information\ about\ the\ parked\ car.\r\n
+comment0.text=\r\n\ The\ ParkingSlot\ class\ represents\ a\ parking\ slot\ in\ the\ car\ park.\r\n\ It\ tracks\ whether\ the\ slot\ is\ occupied\ and\ holds\ information\ about\ the\ parked\ car.\r\n\ @author\ -\ Arun\ Ragavendhar\ -\ 104837257\r\n\ @version\ -\ 1.0\ -\ 06/09/2024\r\n
 comment1.params=slotID\ isStaffSlot
 comment1.target=ParkingSlot(java.lang.String,\ boolean)
 comment1.text=\r\n\ Initializes\ a\ ParkingSlot\ with\ an\ ID\ and\ type.\r\n\ @param\ slotID\ The\ ID\ of\ the\ slot\ (e.g.,\ "S01").\ slot\ ID\ is\ starts\ with\ 'S'\ for\ staff\ and\ 'V'\ for\ visitor\ \r\n\ @param\ isStaffSlot\ True\ if\ it's\ a\ staff\ slot,\ false\ if\ it's\ a\ visitor\ slot.\r\n\ @throws\ IllegalArgumentException\ if\ the\ slot\ ID\ is\ invalid.\r\n

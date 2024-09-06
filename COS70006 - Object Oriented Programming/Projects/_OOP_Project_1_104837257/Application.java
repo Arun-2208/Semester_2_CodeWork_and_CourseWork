@@ -4,6 +4,8 @@ import java.util.regex.Pattern;
 /**
  * The Application class is the entry point of the Parking Spot System.
  * It handles the console-based user interface and manages user interactions.
+ * @author - Arun Ragavendhar - 104837257
+ * @version - 1.0 - 06/09/2024
  */
 public class Application {
 
@@ -99,10 +101,15 @@ public class Application {
             if (scanner.hasNextInt()) {
                 count = scanner.nextInt();
                 scanner.nextLine();
-                if (count > 0) {
+                if (count > 0 && count <=75) {
                     return count;
                 }
+                else if(count > 75) {
+                    System.out.println("\nThe maximum capacity is 75 parking slots per slot type . Please enter a number within that capacity");
+                }
+                else {
                 System.out.println("\nPlease enter a positive number.");
+                }
             } else {
                 System.out.println("\nInvalid input. Please enter a number.");
                 scanner.next(); // consume the invalid input
@@ -219,7 +226,7 @@ public class Application {
     }
 
     /**
-     * Validates the owner using a regex pattern.
+     * Validates the owner name using a regex pattern.
      */
     private String getValidatedOwnerName(Scanner scanner){
         String owner;

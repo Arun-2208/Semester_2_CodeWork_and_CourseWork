@@ -6,6 +6,8 @@ import java.util.regex.Pattern;
 /**
  * The ParkingSlot class represents a parking slot in the car park.
  * It tracks whether the slot is occupied and holds information about the parked car.
+ * @author - Arun Ragavendhar - 104837257
+ * @version - 1.0 - 06/09/2024
  */
 public class ParkingSlot {
 

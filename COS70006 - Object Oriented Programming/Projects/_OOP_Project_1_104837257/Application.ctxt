@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Application
-comment0.text=\r\n\ The\ Application\ class\ is\ the\ entry\ point\ of\ the\ Parking\ Spot\ System.\r\n\ It\ handles\ the\ console-based\ user\ interface\ and\ manages\ user\ interactions.\r\n
+comment0.text=\r\n\ The\ Application\ class\ is\ the\ entry\ point\ of\ the\ Parking\ Spot\ System.\r\n\ It\ handles\ the\ console-based\ user\ interface\ and\ manages\ user\ interactions.\r\n\ @author\ -\ Arun\ Ragavendhar\ -\ 104837257\r\n\ @version\ -\ 1.0\ -\ 06/09/2024\r\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
 comment10.params=scanner
@@ -11,7 +11,7 @@ comment11.target=java.lang.String\ getValidatedSlotID(java.util.Scanner)
 comment11.text=\r\n\ Validates\ the\ slot\ ID\ using\ a\ regex\ pattern.\r\n
 comment12.params=scanner
 comment12.target=java.lang.String\ getValidatedOwnerName(java.util.Scanner)
-comment12.text=\r\n\ Validates\ the\ owner\ using\ a\ regex\ pattern.\r\n
+comment12.text=\r\n\ Validates\ the\ owner\ name\ using\ a\ regex\ pattern.\r\n
 comment13.params=scanner
 comment13.target=java.lang.String\ getValidatedRegNo(java.util.Scanner)
 comment13.text=\r\n\ Validates\ the\ car\ registration\ number\ using\ a\ regex\ pattern.\r\n
