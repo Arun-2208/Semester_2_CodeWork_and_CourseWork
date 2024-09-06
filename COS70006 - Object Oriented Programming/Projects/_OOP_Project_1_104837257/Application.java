@@ -10,6 +10,7 @@ public class Application {
     private CarPark carPark;
     private static final Pattern SLOT_ID_PATTERN = Pattern.compile("^[SV]\\d{2}$");
     private static final Pattern REG_NO_PATTERN = Pattern.compile("^[A-Z]\\d{4}$");
+    private static final Pattern OWNER_NAME_PATTERN = Pattern.compile("^[A-Za-z ]+$");
 
     public static void main(String[] args) {
         Application app = new Application();
@@ -59,7 +60,7 @@ public class Application {
                     removeCar(scanner);
                     break;
                 case 8:
-                    System.out.println("\nProgram end!");
+                    System.out.println("\nProgram end!\n");
                     break;
                 default:
                     System.out.println("\nInvalid option. Please try again.");
@@ -74,6 +75,7 @@ public class Application {
      * Displays the main menu options to the user.
      */
     private void displayMenu() {
+        System.out.println("\n-----------------------------------------------");
         System.out.println("\nMenu:");
         System.out.println("1. Add a parking slot");
         System.out.println("2. Delete a parking slot");
@@ -82,8 +84,9 @@ public class Application {
         System.out.println("5. Park a car");
         System.out.println("6. Find a car by registration number");
         System.out.println("7. Remove a car by registration number");
-        System.out.println("8. Exit");
-        System.out.print("Choose an option: ");
+        System.out.println("8. Exit\n");
+        System.out.print("Choose an option: \n");
+        System.out.println("-----------------------------------------------\n");
     }
 
     /**
@@ -132,11 +135,11 @@ public class Application {
      * @param scanner The Scanner object to read user input.
      */
     private void addParkingSlot(Scanner scanner) {
-        System.out.print("\nEnter slot ID (e.g., S01 , DO1): ");
+        System.out.print("\nEnter slot ID (e.g., S01 - staff, VO1 - visitor): ");
         String slotID = getValidatedSlotID(scanner);
         if (carPark.isSlotIDUnique(slotID)) {
-            System.out.print("\nIs this a staff slot? (yes/no): ");
-            boolean isStaff = scanner.nextLine().equalsIgnoreCase("yes");
+            System.out.print("\nIs this a staff or visitor slot? (staff/visitor): ");
+            boolean isStaff = scanner.nextLine().equalsIgnoreCase("staff");
             carPark.addSlot(new ParkingSlot(slotID, isStaff));
         } else {
             System.out.println("\nSlot ID must be unique. Entered slot ID already exists.");
@@ -167,15 +170,15 @@ public class Application {
         System.out.print("\nEnter car registration number (e.g., T6345): ");
         String regNo = getValidatedRegNo(scanner);
         System.out.print("\nEnter owner's name: ");
-        String owner = scanner.nextLine();
-        System.out.print("\nIs the owner a staff ? (yes/no): ");
-        boolean isStaff = (scanner.nextLine().equalsIgnoreCase("yes"));
+        String owner = getValidatedOwnerName(scanner);
+        System.out.print("\nIs the owner a staff or visitor? (staff/visitor): ");
+        boolean isStaff = (scanner.nextLine().equalsIgnoreCase("staff"));
 
         if (carPark.isSlotAvailable(slotID, isStaff)) {
             Car car = new Car(regNo, owner, isStaff);
             carPark.parkCar(slotID, car);
         } else {
-            System.out.println("\nCannot park the car in this slot. Make sure it's available and the car type matches the slot type.");
+            System.out.println("\nCannot park the car in this slot. PLease make sure it's available and the car type matches the slot type.");
         }
     }
 
@@ -213,6 +216,23 @@ public class Application {
             System.out.print("\nInvalid slot ID. Please enter a valid slot ID (e.g., S01 ,V01): ");
             }
         }
+    }
+
+    /**
+     * Validates the owner using a regex pattern.
+     */
+    private String getValidatedOwnerName(Scanner scanner){
+        String owner;
+
+        while(true){
+            owner = scanner.nextLine();
+            if(OWNER_NAME_PATTERN.matcher(owner).matches()){
+                return owner;
+            }
+            else{
+            System.out.println("\nInvalid name . The name must have only alphabets ");
+            }
+        } 
     }
 
     /**

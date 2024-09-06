@@ -17,7 +17,7 @@ public class ParkingSlot {
 
     /**
      * Initializes a ParkingSlot with an ID and type.
-     * @param slotID The ID of the slot (e.g., "S01").
+     * @param slotID The ID of the slot (e.g., "S01"). slot ID is starts with 'S' for staff and 'V' for visitor 
      * @param isStaffSlot True if it's a staff slot, false if it's a visitor slot.
      * @throws IllegalArgumentException if the slot ID is invalid.
      */
@@ -71,7 +71,7 @@ public class ParkingSlot {
             throw new IllegalStateException("\nSlot is already occupied.");
         }
         this.car = car;
-        this.parkedTime = LocalDateTime.now();  // Record the current time when the car is parked
+        this.parkedTime = LocalDateTime.now();  // Record the current time when the car is parked 
     }
 
     /**
@@ -95,10 +95,10 @@ public class ParkingSlot {
         StringBuilder sb = new StringBuilder();
         sb.append("Slot ID: ").append(slotID);
         sb.append(", Type: ").append(isStaffSlot ? "Staff" : "Visitor");
-        sb.append(", Occupied: ").append(isOccupied());
+        sb.append(", Status: ").append(isOccupied()? "Occupied" :"Vacant").append("\n");
         if (isOccupied()) {
-            sb.append(", Car: ").append(car);
-            sb.append(", Parked Time: ").append(parkedTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+            sb.append("\nCar - ").append(car).append("\n");
+            sb.append("\nParked Time: ").append(parkedTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
             sb.append(", Parking Duration: ").append(getParkingDuration());
             sb.append(", Fee: $").append(calculateParkingFee());
         }
@@ -110,7 +110,7 @@ public class ParkingSlot {
      * @return A formatted string showing the duration.
      */
     private String getParkingDuration() {
-        if (parkedTime == null) return "N/A";
+        if (parkedTime == null) return "\nNot Applicable";
         Duration duration = Duration.between(parkedTime, LocalDateTime.now());
         long hours = duration.toHours();
         long minutes = duration.toMinutesPart();
@@ -125,6 +125,6 @@ public class ParkingSlot {
     private int calculateParkingFee() {
         if (parkedTime == null) return 0;
         long hours = Duration.between(parkedTime, LocalDateTime.now()).toHours();
-        return (int) (hours + 1) * 5; // Charge for every hour or part thereof
+        return (int) (hours + 1) * 5; // Charge for every hour , for less than 1 hour , minimum charge is taken for 1 hour as standard rate 
     }
 }

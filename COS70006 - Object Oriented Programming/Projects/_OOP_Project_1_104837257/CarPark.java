@@ -18,11 +18,11 @@ public class CarPark {
         slots = new ArrayList<>();
         char staffIdentifier = 'S';
         char visitorIdentifier = 'V';
-        // Generate staff slots
+        // Allocating staff slots
         for (int i = 1; i <= staffSlots; i++) {
             slots.add(new ParkingSlot(staffIdentifier + String.format("%02d", i), true));
         }
-        // Generate visitor slots
+        // Allocating visitor slots
         for (int i = 1; i <= visitorSlots; i++) {
             slots.add(new ParkingSlot(visitorIdentifier + String.format("%02d", i), false));
         }
@@ -67,6 +67,7 @@ public class CarPark {
             System.out.println("\nNo parking slots available.");
         } else {
             for (ParkingSlot slot : slots) {
+                System.out.println("-----------------------------------------------");
                 System.out.println(slot);
             }
         }

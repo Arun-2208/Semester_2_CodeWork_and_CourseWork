@@ -3,9 +3,8 @@ import java.util.regex.Pattern;
 /**
  * The Car class represents a car with a registration number and ownership details.
  * 
- * @author -
- *         Arun Ragavendhar - 104837257
- * @version - 1.0
+ * @author - Arun Ragavendhar - 104837257
+ * @version - 1.0 - 06/09/2024
  */
 public class Car {
 
@@ -68,6 +67,6 @@ public class Car {
      */
     @Override
     public String toString() {
-        return String.format("Registration: %s, Owner: %s, Staff: %s", registrationNumber, owner, isStaff ? "Yes" : "No");
+        return String.format("Registration: %s, Owner: %s, Owner type: %s", registrationNumber, owner, isStaff ? "staff" : "Visitor");
     }
 }
