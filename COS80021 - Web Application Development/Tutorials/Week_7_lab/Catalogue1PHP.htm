@@ -1,0 +1,20 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Catalogue</title>
+    <script type="text/javascript" src="CartPHP.js"></script>  
+</head>
+<body>
+    <h2>Book Store</h2>
+
+    <b>Book:</b><span id="book">Beginning ASP.NET with CSharp</span><br />
+    <b>Authors:</b> Hart, Kauffman, Sussman, Ullman<br />
+    <b>ISBN:</b> 0764588508<br />
+    <b>Price:</b> $39.99<br />
+    <button onclick="addToCart('Beginning ASP.NET with CSharp', '0764588508', 39.99);">Add to Cart</button>
+
+    <br /><br />
+    <div id="cart"></div>
+</body>
+</html>
