@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <style>
+    .book-catalog {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 2rem;
+    }
+
+    .book-card {
+      display: flex;
+      height: 150px;
+      width: 300px;
+      min-width: 100px;
+
+      border: 1px solid #888;
+      padding: 12px 8px;
+      border-radius: 12px;
+    }
+
+    .book-card img {
+      border-radius: 8px;
+      height: 200px;
+    }
+
+    .book-card-content {
+      display: flex;
+      flex-direction: column;
+
+      gap: 8px;
+      font-size: 18px;
+    }
+
+    .book-card-content span:first {
+      text-wrap: wrap;
+      line-clamp: 2;
+    }
+
+    table {
+      width: 100%;
+      padding: 8px;
+    }
+    table, th, td {
+      border: 1px solid #888;
+      border-radius: 8px;
+    }
+    
+    th, td {
+      padding: 12px 8px;
+    }
+  </style>
+  <script type="text/javascript" src="CartPHP.js"></script>
+</head>
+
+<body>
+  <div class="book-catalog" id="book-catalog"></div>
+  <div id="cart"></div>
+</body>
+
+</html>

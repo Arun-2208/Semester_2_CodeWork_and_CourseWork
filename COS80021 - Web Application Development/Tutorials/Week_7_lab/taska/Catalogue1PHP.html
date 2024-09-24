@@ -1,0 +1,68 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <style>
+    .book-card {
+      display: flex;
+      align-items: start;
+      justify-content: start;
+      height: max-content;
+      width: max-content;
+      min-width: 300px;
+      gap: 8px;
+
+      border: 1px solid #888;
+      padding: 12px 8px;
+      border-radius: 12px;
+      margin-bottom: 4rem;
+    }
+
+    .book-card img {
+      border-radius: 8px;
+      height: 200px;
+    }
+
+    .book-card-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1;
+      gap: 8px;
+      font-size: 18px;
+      height: 100%;
+    }
+
+    table {
+      width: 100%;
+      padding: 8px;
+    }
+    table, th, td {
+      border: 1px solid #888;
+      border-radius: 8px;
+    }
+    
+    th, td {
+      padding: 12px 8px;
+    }
+  </style>
+  <script type="text/javascript" src="CartPHP.js"></script>
+</head>
+
+<body>
+  <div class="book-card">
+    <img id="cover" src="begaspnet.jpg" />
+    <div >
+      <div class="book-card-content" id="book-card-content">
+        <span>Book: <b id="book">Beginning ASP.NET with CSharp</b></span>
+        <span>ISBN: <b id="ISBN">0764588508</b></span>
+        <span>Price: $<b id="price">39.99</b></span>
+      </div>
+
+      <button onclick="AddRemoveItem('Add');" style="margin-top: 2rem; width: 100%;">
+        Add To Shopping Cart
+      </button>
+    </div>
+  </div>
+  <div id="cart"></div>
+</body>
+
+</html>
