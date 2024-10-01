@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookStore</title>
+  <script src="./script.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    span {
+      display: block;
+      font-size: 24px;
+    }
+
+    .book-title {
+      font-weight: bold;
+      color: blue;
+    }
+
+    .book-author {
+      font-style: italic;
+      color: red;
+      margin-top: 4px;
+    }
+
+    .book-price {
+      color: black;
+      font-size: 20px;
+      margin-top: 8px;
+    }
+
+    .total-cost {
+      font-family: Arial, sans-serif;
+      font-size: 32px;
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <button onclick="transformXML()">Show Fiction Books Under $30</button>
+  <div id="book-list"></div>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+  <book>
+    <title type="fiction">The Great Gatsby</title>
+    <author>F. Scott Fitzgerald</author>
+    <author>Arun</author>
+    <publisher>Scribner</publisher>
+    <year>1925</year>
+    <price>10.99</price>
+  </book>
+  <book>
+    <title type="non-fiction">A Brief History of Time</title>
+    <author>Stephen Hawking</author>
+    <publisher>Bantam</publisher>
+    <year>1988</year>
+    <price>15.99</price>
+  </book>
+  <book>
+    <title type="fiction">1984</title>
+    <author>George Orwell</author>
+    <publisher>Secker &amp; Warburg</publisher>
+    <year>1949</year>
+    <price>32.99</price>
+  </book>
+  <book>
+    <title type="fiction">To Kill a Mockingbird</title>
+    <author>Harper Lee</author>
+    <publisher>J.B. Lippincott &amp; Co.</publisher>
+    <year>1960</year>
+    <price>8.99</price>
+  </book>
+  <book>
+    <title type="non-fiction">Sapiens: A Brief History of Humankind</title>
+    <author>Yuval Noah Harari</author>
+    <publisher>Harper</publisher>
+    <year>2014</year>
+    <price>20.99</price>
+  </book>
+  <book>
+    <title type="fiction">Pride and Prejudice</title>
+    <author>Jane Austen</author>
+    <publisher>T. Egerton</publisher>
+    <year>1813</year>
+    <price>5.99</price>
+  </book>
+  <book>
+    <title type="non-fiction">The Selfish Gene</title>
+    <author>Richard Dawkins</author>
+    <publisher>Oxford University Press</publisher>
+    <year>1976</year>
+    <price>12.99</price>
+  </book>
+  <book>
+    <title type="fiction">The Catcher in the Rye</title>
+    <author>J.D. Salinger</author>
+    <publisher>Little, Brown and Company</publisher>
+    <year>1951</year>
+    <price>9.99</price>
+  </book>
+  <book>
+    <title type="fiction">The Lord of the Rings</title>
+    <author>J.R.R. Tolkien</author>
+    <publisher>Allen &amp; Unwin</publisher>
+    <year>1954</year>
+    <price>25.99</price>
+  </book>
+  <book>
+    <title type="non-fiction">The Origin of Species</title>
+    <author>Charles Darwin</author>
+    <publisher>John Murray</publisher>
+    <year>1859</year>
+    <price>11.99</price>
+  </book>
+</books>
